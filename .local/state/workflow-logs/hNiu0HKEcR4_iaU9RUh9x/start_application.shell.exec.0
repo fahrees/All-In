@@ -1,0 +1,193 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K4:06:24 PM [express] serving on port 5000
+Internal Server Error: TypeError: req.isAuthenticated is not a function
+    at isAuthenticated [90m(/home/runner/workspace/[39mserver/replit_integrations/auth/replitAuth.ts:136:12[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:06:32 PM [express] GET /api/auth/user 500 in 8ms :: {"message":"req.isAuthenticated is not a function"}
+Internal Server Error: TypeError: req.isAuthenticated is not a function
+    at isAuthenticated [90m(/home/runner/workspace/[39mserver/replit_integrations/auth/replitAuth.ts:136:12[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:06:50 PM [express] GET /api/auth/user 500 in 1ms :: {"message":"req.isAuthenticated is not a function"}
+4:06:54 PM [express] GET /api/login 200 in 13ms
+Internal Server Error: TypeError: req.isAuthenticated is not a function
+    at isAuthenticated [90m(/home/runner/workspace/[39mserver/replit_integrations/auth/replitAuth.ts:136:12[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:06:58 PM [express] GET /api/auth/user 500 in 2ms :: {"message":"req.isAuthenticated is not a function"}
+4:07:04 PM [express] GET /api/login 200 in 8ms
+Internal Server Error: TypeError: req.isAuthenticated is not a function
+    at isAuthenticated [90m(/home/runner/workspace/[39mserver/replit_integrations/auth/replitAuth.ts:136:12[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:07:07 PM [express] GET /api/auth/user 500 in 1ms :: {"message":"req.isAuthenticated is not a function"}
+4:07:16 PM [express] GET /api/login 200 in 3ms
+Internal Server Error: TypeError: req.isAuthenticated is not a function
+    at isAuthenticated [90m(/home/runner/workspace/[39mserver/replit_integrations/auth/replitAuth.ts:136:12[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:157:13[90m)[39m
+    at Route.dispatch [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/route.js:117:3[90m)[39m
+    at handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:435:11[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:295:15
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at <anonymous> [90m(/home/runner/workspace/[39mserver/index.ts:59:3[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at urlencodedParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/urlencoded.js:57:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at read [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/read.js:53:5[90m)[39m
+    at jsonParser [90m(/home/runner/workspace/[39mnode_modules/[4mbody-parser[24m/lib/types/json.js:88:5[90m)[39m
+    at Layer.handleRequest [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/lib/layer.js:152:17[90m)[39m
+    at trimPrefix [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:342:13[90m)[39m
+    at [90m/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:297:9
+    at processParams [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:582:12[90m)[39m
+    at next [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:291:5[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mrouter[24m/index.js:186:3[90m)[39m
+    at Function.handle [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/application.js:177:15[90m)[39m
+    at Server.app [90m(/home/runner/workspace/[39mnode_modules/[4mexpress[24m/lib/express.js:38:9[90m)[39m
+[90m    at Server.emit (node:events:524:28)[39m
+[90m    at parserOnIncoming (node:_http_server:1141:12)[39m
+[90m    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17)[39m
+4:07:19 PM [express] GET /api/auth/user 500 in 2ms :: {"message":"req.isAuthenticated is not a function"}

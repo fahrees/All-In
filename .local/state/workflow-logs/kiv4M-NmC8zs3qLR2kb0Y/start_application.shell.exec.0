@@ -1,0 +1,30 @@
+
+> rest-express@1.0.0 dev
+> NODE_ENV=development tsx server/index.ts
+
+[1G[0K🌱 Seeding database with sample data...
+✅ Database seeded successfully!
+4:09:26 PM [express] serving on port 5000
+4:09:31 PM [express] GET /api/auth/user 401 in 2ms :: {"message":"Unauthorized"}
+4:09:57 PM [express] GET /api/login 302 in 59ms
+4:10:10 PM [express] GET /api/auth/user 401 in 15ms :: {"message":"Unauthorized"}
+4:10:12 PM [express] GET /api/login 302 in 6ms
+4:10:51 PM [express] GET /api/auth/user 401 in 16ms :: {"message":"Unauthorized"}
+4:10:53 PM [express] GET /api/login 302 in 6ms
+4:11:01 PM [express] GET /api/callback 302 in 226ms
+4:11:05 PM [express] GET /api/auth/user 200 in 6ms :: {"id":"55888844","email":"roycetzq@gmail.com","firstName":"Royce","lastName":null,"profileImageUrl":null,"createdAt":"2026-03-10T16:11:01.027Z","updatedAt":"2026-03-10T16:11:01.027Z"}
+4:11:05 PM [express] GET /api/portfolios 200 in 6ms :: []
+4:11:25 PM [express] GET /api/insights 200 in 25ms :: []
+4:11:28 PM [express] POST /api/insights/generate 400 in 8ms :: {"message":"No assets to analyze"}
+4:11:34 PM [express] POST /api/insights/generate 400 in 15ms :: {"message":"No assets to analyze"}
+4:11:58 PM [express] POST /api/portfolios 201 in 27ms :: {"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"}
+4:11:58 PM [express] GET /api/portfolios 200 in 7ms :: [{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"}]
+4:12:00 PM [express] GET /api/portfolios/3 200 in 19ms :: {"portfolio":{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"},"assets":[]}
+4:12:27 PM [express] POST /api/assets 201 in 60ms :: {"id":7,"portfolioId":3,"symbol":"AAPL","name":"Apple INC","assetType":"traditional","quantity":"5","currentValue":"1000","currency":"USD","updatedAt":"2026-03-10T16:12:27.552Z"}
+4:12:27 PM [express] GET /api/portfolios/3 200 in 7ms :: {"portfolio":{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"},"assets":[{"id":7,"portfolioId":3,"symbol":"AAPL","name":"Apple INC","assetType":"traditional","quantity":"5","currentValue":"1000","currency":"USD","updatedAt":"2026-03-10T16:12:27.552Z"}]}
+4:12:32 PM [express] GET /api/portfolios 304 in 6ms :: [{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"}]
+4:12:40 PM [express] POST /api/insights/generate 200 in 3745ms :: [{"id":1,"userId":"55888844","portfolioId":null,"content":"Your portfolio is highly concentrated in a single traditional stock (AAPL); consider adding other asset types (bonds, ETFs, cash, or alternative assets) and sectors to reduce single-company risk.","category":"diversification","createdAt":"2026-03-10T16:12:40.077Z"},{"id":2,"userId":"55888844","portfolioId":null,"content":"AAPL is a very liquid large-cap stock, so you can typically buy or sell quickly with tight bid-ask spreads, making it easy to rebalance or raise cash when needed.","category":"liquidity","createdAt":"2026-03-10T16:12:40.085Z"},{"id":3,"userId":"55888844","portfolioId":null,"content":"To improve risk-adjusted growth, consider gradually allocating new contributions into a low-cost diversified index fund or ETF and possibly a small bond or cash position to cushion market downturns.","category":"opportunity","createdAt":"2026-03-10T16:12:40.088Z"}]
+4:12:41 PM [express] GET /api/insights 200 in 5ms :: [{"id":1,"userId":"55888844","portfolioId":null,"content":"Your portfolio is highly concentrated in a single traditional stock (AAPL); consider adding other asset types (bonds, ETFs, cash, or alternative assets) and sectors to reduce single-company risk.","category":"diversification","createdAt":"2026-03-10T16:12:40.077Z"},{"id":2,"userId":"55888844","portfolioId":null,"content":"AAPL is a very liquid large-cap stock, so you can typically buy or sell quickly with tight bid-ask spreads, making it easy to rebalance or raise cash when needed.","category":"liquidity","createdAt":"2026-03-10T16:12:40.085Z"},{"id":3,"userId":"55888844","portfolioId":null,"content":"To improve risk-adjusted growth, consider gradually allocating new contributions into a low-cost diversified index fund or ETF and possibly a small bond or cash position to cushion market downturns.","category":"opportunity","createdAt":"2026-03-10T16:12:40.088Z"}]
+4:19:59 PM [express] GET /api/auth/user 200 in 14ms :: {"id":"55888844","email":"roycetzq@gmail.com","firstName":"Royce","lastName":null,"profileImageUrl":null,"createdAt":"2026-03-10T16:11:01.027Z","updatedAt":"2026-03-10T16:11:01.027Z"}
+4:19:59 PM [express] GET /api/portfolios 200 in 5ms :: [{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"}]
+4:20:00 PM [express] GET /api/portfolios/3 200 in 7ms :: {"portfolio":{"id":3,"userId":"55888844","name":"high yield divident fund","createdAt":"2026-03-10T16:11:58.056Z"},"assets":[{"id":7,"portfolioId":3,"symbol":"AAPL","name":"Apple INC","assetType":"traditional","quantity":"5","currentValue":"1000","currency":"USD","updatedAt":"2026-03-10T16:12:27.552Z"}]}

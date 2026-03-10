@@ -4,7 +4,7 @@ import { z } from "zod";
 import { sql } from "drizzle-orm";
 
 // Re-export auth models from separate file
-export { users, sessions } from "./models/auth";
+export { users, sessions, accounts } from "./models/auth";
 export type { User, UpsertUser } from "./models/auth";
 
 export const portfolios = pgTable("portfolios", {

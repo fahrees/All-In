@@ -2,6 +2,9 @@ import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
+import { toNodeHandler } from "better-auth/node";
+import { auth } from "./auth";
+
 
 const app = express();
 const httpServer = createServer(app);
@@ -11,6 +14,11 @@ declare module "http" {
     rawBody: unknown;
   }
 }
+
+// Add this BEFORE app.use(express.json())
+app.all("/api/auth/*path", toNodeHandler(auth));
+
+app.use(express.json()); // keep this after
 
 app.use(
   express.json({
@@ -89,15 +97,16 @@ app.use((req, res, next) => {
   // Other ports are firewalled. Default to 5000 if not specified.
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000", 10);
+    const port = parseInt(process.env.PORT || "5000", 10);
   httpServer.listen(
     {
       port,
-      host: "0.0.0.0",
-      reusePort: true,
+      host: "127.0.0.1", // ← changed from "0.0.0.0"
+      // reusePort: true,  ← removed, not supported on Windows
     },
     () => {
       log(`serving on port ${port}`);
     },
   );
+
 })();

@@ -1,17 +1,7 @@
-export function isUnauthorizedError(error: Error): boolean {
-  return /^401: .*Unauthorized/.test(error.message);
-}
+import { createAuthClient } from "better-auth/react";
 
-// Redirect to login with a toast notification
-export function redirectToLogin(toast?: (options: { title: string; description: string; variant: string }) => void) {
-  if (toast) {
-    toast({
-      title: "Unauthorized",
-      description: "You are logged out. Logging in again...",
-      variant: "destructive",
-    });
-  }
-  setTimeout(() => {
-    window.location.href = "/api/login";
-  }, 500);
-}
+export const authClient = createAuthClient({
+  baseURL: "http://127.0.0.1:5000",
+});
+
+export const { signIn, signOut, signUp, useSession } = authClient;

@@ -6,7 +6,6 @@ import {
   Lightbulb, 
   LogOut,
   Hexagon,
-  TrendingUp
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -56,10 +55,10 @@ export function Sidebar() {
       <div className="p-4 border-t border-border/50">
         <div className="flex items-center gap-3 mb-4 px-2 bg-white/5 py-3 rounded-xl">
           <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-accent to-blue-600 flex items-center justify-center text-white font-bold shadow-md">
-            {user?.firstName?.charAt(0) || 'U'}
+            {user?.name?.charAt(0) || 'U'}
           </div>
           <div className="overflow-hidden">
-            <p className="text-sm font-semibold text-white truncate">{user?.firstName || 'User'} {user?.lastName || ''}</p>
+            <p className="text-sm font-semibold text-white truncate">{user?.name || 'User'}</p>
             <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
           </div>
         </div>
