@@ -41,25 +41,29 @@ Make sure you have the following installed:
 ## 📦 Installation
 
 ### 1. Clone the repository
+```
 gh repo clone fahrees/All-In
-
+```
 ### 2. Install dependencies
+```
 npm install
-
+```
 ### 3. Set up environment variables
 Create a .env file in the root of the project:
+```
 DATABASE_URL=postgresql://your_user:your_password@your_host/your_db?sslmode=require
 AI_INTEGRATIONS_OPENAI_API_KEY=sk-your-openai-api-key
 AI_INTEGRATIONS_OPENAI_BASE_URL=https://api.openai.com/v1
 BETTER_AUTH_SECRET=your-random-secret-string
+```
 
 ### 4. Push the database schema
+```
 npm run db:push
-
+```
 ### 5. Start the development server
+```
 npm run dev
-
+```
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
-cd YOUR_REPO_NAME
