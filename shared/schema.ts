@@ -1,13 +1,15 @@
 import { pgTable, serial, text, numeric, timestamp, varchar, integer } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
-import { users } from "./models/auth";
+import { sql } from "drizzle-orm";
 
-export { users };
+// Re-export auth models from separate file
+export { users, sessions } from "./models/auth";
+export type { User, UpsertUser } from "./models/auth";
 
 export const portfolios = pgTable("portfolios", {
   id: serial("id").primaryKey(),
-  userId: varchar("user_id").notNull(), // No foreign key constraint to users table as Replit Auth handles users table separately in another file sometimes, but we will assume it links correctly.
+  userId: varchar("user_id").notNull(),
   name: text("name").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
@@ -17,7 +19,7 @@ export const assets = pgTable("assets", {
   portfolioId: integer("portfolio_id").references(() => portfolios.id).notNull(),
   symbol: text("symbol").notNull(),
   name: text("name").notNull(),
-  assetType: text("asset_type").notNull(), // "traditional", "digital", "private"
+  assetType: text("asset_type").notNull(),
   quantity: numeric("quantity").notNull(),
   currentValue: numeric("current_value").notNull(), 
   currency: text("currency").default("USD"),
@@ -29,7 +31,7 @@ export const insights = pgTable("insights", {
   userId: varchar("user_id").notNull(),
   portfolioId: integer("portfolio_id").references(() => portfolios.id),
   content: text("content").notNull(),
-  category: text("category").notNull(), // e.g., "diversification", "liquidity", "opportunity"
+  category: text("category").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

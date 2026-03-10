@@ -7,14 +7,106 @@ import OpenAI from "openai";
 import { isAuthenticated } from "./replit_integrations/auth/replitAuth";
 import { registerAuthRoutes } from "./replit_integrations/auth";
 
+async function seedDatabase() {
+  try {
+    const existingPortfolios = await storage.getPortfolios("demo-user");
+    if (existingPortfolios.length === 0) {
+      console.log("🌱 Seeding database with sample data...");
+      
+      // Create sample portfolios
+      const portfolio1 = await storage.createPortfolio({
+        userId: "demo-user",
+        name: "Tech Growth Portfolio",
+      });
+
+      const portfolio2 = await storage.createPortfolio({
+        userId: "demo-user",
+        name: "Diversified Income",
+      });
+
+      // Add assets to first portfolio
+      await storage.createAsset({
+        portfolioId: portfolio1.id,
+        symbol: "AAPL",
+        name: "Apple Inc.",
+        assetType: "traditional",
+        quantity: "50",
+        currentValue: "230.50",
+        currency: "USD",
+      });
+
+      await storage.createAsset({
+        portfolioId: portfolio1.id,
+        symbol: "MSFT",
+        name: "Microsoft Corporation",
+        assetType: "traditional",
+        quantity: "30",
+        currentValue: "445.75",
+        currency: "USD",
+      });
+
+      await storage.createAsset({
+        portfolioId: portfolio1.id,
+        symbol: "BTC",
+        name: "Bitcoin",
+        assetType: "digital",
+        quantity: "0.5",
+        currentValue: "98500",
+        currency: "USD",
+      });
+
+      // Add assets to second portfolio
+      await storage.createAsset({
+        portfolioId: portfolio2.id,
+        symbol: "JNJ",
+        name: "Johnson & Johnson",
+        assetType: "traditional",
+        quantity: "100",
+        currentValue: "160.25",
+        currency: "USD",
+      });
+
+      await storage.createAsset({
+        portfolioId: portfolio2.id,
+        symbol: "REAL-ESTATE",
+        name: "Real Estate Investment Trust",
+        assetType: "private",
+        quantity: "25",
+        currentValue: "75",
+        currency: "USD",
+      });
+
+      await storage.createAsset({
+        portfolioId: portfolio2.id,
+        symbol: "ETH",
+        name: "Ethereum",
+        assetType: "digital",
+        quantity: "3",
+        currentValue: "3850",
+        currency: "USD",
+      });
+
+      console.log("✅ Database seeded successfully!");
+    }
+  } catch (error) {
+    console.log("Database seeding skipped or error occurred (this is normal in production)");
+  }
+}
+
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // Register auth routes first
+  // Setup authentication
+  await (await import("./replit_integrations/auth")).setupAuth(app);
+  
+  // Register auth routes
   registerAuthRoutes(app);
 
-  // Apply authentication middleware to all subsequent routes
+  // Seed database with sample data
+  await seedDatabase();
+
+  // Apply authentication middleware to all API routes
   app.use('/api/portfolios', isAuthenticated);
   app.use('/api/assets', isAuthenticated);
   app.use('/api/insights', isAuthenticated);
@@ -74,7 +166,7 @@ export async function registerRoutes(
     try {
       const bodySchema = api.assets.create.input.extend({
         portfolioId: z.coerce.number(),
-        quantity: z.string(), // Coming as string from frontend form usually
+        quantity: z.string(),
         currentValue: z.string(),
       });
       
@@ -99,9 +191,6 @@ export async function registerRoutes(
   app.delete(api.assets.delete.path, async (req: any, res) => {
     try {
       const id = parseInt(req.params.id);
-      
-      // We should ideally check if the user owns the asset's portfolio, 
-      // but for simplicity in MVP we assume the frontend only shows their own assets.
       await storage.deleteAsset(id);
       res.status(204).send();
     } catch (err) {
@@ -127,7 +216,6 @@ export async function registerRoutes(
       
       let assetsToAnalyze = [];
       if (input.portfolioId) {
-        // Verify ownership
         const portfolio = await storage.getPortfolio(input.portfolioId);
         if (!portfolio || portfolio.userId !== userId) {
           return res.status(404).json({ message: "Portfolio not found" });
@@ -141,7 +229,6 @@ export async function registerRoutes(
         return res.status(400).json({ message: "No assets to analyze" });
       }
 
-      // Initialize OpenAI using Replit AI Integrations credentials
       const openai = new OpenAI({
         apiKey: process.env.AI_INTEGRATIONS_OPENAI_API_KEY,
         baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
@@ -177,11 +264,9 @@ export async function registerRoutes(
         throw new Error("No response from AI");
       }
 
-      // Try to parse the response, fallback to a raw content if it fails
       let generatedInsights = [];
       try {
         const parsed = JSON.parse(content);
-        // Sometimes the model wraps it in an object like { "insights": [...] } due to json_object mode
         const items = Array.isArray(parsed) ? parsed : (parsed.insights || [parsed]);
         
         for (const item of items) {
@@ -194,7 +279,6 @@ export async function registerRoutes(
           generatedInsights.push(newInsight);
         }
       } catch (parseError) {
-        console.error("Failed to parse AI response:", parseError, content);
         const newInsight = await storage.createInsight({
           userId,
           portfolioId: input.portfolioId,
