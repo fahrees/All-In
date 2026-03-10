@@ -61,9 +61,7 @@ BETTER_AUTH_SECRET=your-random-secret-string
 ```
 npm run db:push
 ```
-### 5. Start the development server
+### 5. Start the server
 ```
 npm run dev
 ```
-
-```bash
