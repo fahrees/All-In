@@ -65,3 +65,4 @@ npm run db:push
 ```
 npm run dev
 ```
+> Currently for testing, user: fahrees@gmail.com, password: password can be used to login to the dashboard
